@@ -1,0 +1,19 @@
+# Local runtime data
+config/
+logs/
+captures/
+
+# Build output
+build/
+dist/
+*.zip
+*.dll
+*.pdb
+__pycache__/
+*.pyc
+
+# Editor and operating-system files
+.vs/
+.vscode/
+Thumbs.db
+Desktop.ini
