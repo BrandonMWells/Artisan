@@ -1,11 +1,12 @@
 addon.name = 'Artisan'
 addon.author = 'Elith'
-addon.version = '0.22.0'
+addon.version = '0.22.1'
 addon.desc = 'Read-only crafting reference from the player inventory and craft skills.'
 addon.link = 'https://github.com/BrandonMWells/Artisan'
 
 -- Changelog (newest first; keep entries concise):
--- 0.22.0 - Bug fixes and minor tweaks.
+-- 0.22.1 - Keeps open tracker categories expanded during inventory updates.
+-- 0.22.0 - Initial public release.
 -- 0.21.0 - Completed all eight craft books and added contextual help.
 -- 0.20.0 - Added the complete Phoenix-era Leathercraft book, key items, and rank tests.
 -- 0.19.0 - Added material recipe jumps, persistent highlighting, and stable bookmarks.
@@ -572,7 +573,7 @@ local function save_settings()
     settings.save()
 end
 
-local function render_category_header(label, category_key)
+local function render_category_header(label, category_key, preserve_runtime_state)
     if state.category_force_open[category_key] then
         imgui.SetNextItemOpen(true, ImGuiCond_Always)
         state.category_force_open[category_key] = nil
@@ -588,6 +589,12 @@ local function render_category_header(label, category_key)
         end
         imgui.SetNextItemOpen(
             state.settings.opened_categories[category_key] == true,
+            ImGuiCond_Always
+        )
+    elseif preserve_runtime_state and
+        state.category_open[category_key] ~= nil then
+        imgui.SetNextItemOpen(
+            state.category_open[category_key] == true,
             ImGuiCond_Always
         )
     end
@@ -1578,7 +1585,7 @@ local function render_craftable_recipe_list(
         #available,
         craft_name
     )
-    if not render_category_header(label, 'tracker:' .. craft_name) then
+    if not render_category_header(label, 'tracker:' .. craft_name, true) then
         return
     end
 
