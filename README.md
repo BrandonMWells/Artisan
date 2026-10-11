@@ -1,25 +1,89 @@
-# Artisan for Ashita v4
+<h1 align="center">Artisan</h1>
 
-`Artisan` is a read-only Final Fantasy XI crafting companion for Ashita v4, built for Phoenix. It provides a complete searchable Craftbook for the server's enabled recipes and an on-hand tracker that uses the player's craft skills, key items, and selected storage locations to show what can be crafted now.
+<p align="center"><strong>Know what you can make with the materials you already have.</strong></p>
 
-**Author:** Elith
+<p align="center">
+  A Final Fantasy XI crafting companion built for Phoenix.<br>
+  Browse the server's recipes, check your available materials, and find your next craft in one place.
+</p>
 
-Artisan is read-only. It does not synthesize items, move inventory, send packets, or modify game memory.
+---
 
-## Features
+<h2 align="center">Craftable Recipes at a Glance</h2>
 
-- On-hand recipe tracker for all eight crafting skills
-- Cross-craft recipe search
-- Craftable quantity for each recipe
-- Bag and wardrobe filters for material counts
-- Recipe bookmarks and guild rank-test sections
-- Right-click Jump to Recipe from outputs, materials, and owned counts
-- Material tooltips showing description, item type, recipe usage, and production sources
-- Key-item, subcraft, recipe-variant, and missing-material indicators
-- Configurable recipe difficulty colors
-- Movable windows with adjustable scale, opacity, and colors
-- Draggable launcher button with square and rounded-rectangle layouts
-- Saved bookmarks, filters, window positions, and display settings
+<table align="center" border="0">
+  <tr>
+    <td align="left">
+      <ul>
+        <li>Scan recipe availability across all eight crafts in one compact window.</li>
+        <li>Match requirements against your craft skills, key items, and selected storage.</li>
+        <li>Expand each craft to review ingredients, owned counts, and missing materials.</li>
+        <li>See how many times each available recipe can be crafted.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/images/artisan-main.png" alt="Artisan main window showing craft levels and craftable recipes" width="560">
+</p>
+
+<h2 align="center">A Comprehensive Craftbook</h2>
+
+<table align="center" border="0">
+  <tr>
+    <td align="left">
+      <ul>
+        <li>Browse recipes across all eight crafts, organized by guild rank.</li>
+        <li>See skill caps, crystals, ingredients, and yields.</li>
+        <li>Review key items, subcrafts, variants, and rank tests.</li>
+        <li>Search the collection or bookmark recipes for quick access.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/images/craftbook.png" alt="Artisan Craftbook showing recipes and material requirements" width="620">
+</p>
+
+<h2 align="center">Choose Which Storage Counts</h2>
+
+<table align="center" border="0">
+  <tr>
+    <td align="left">
+      <ul>
+        <li>Select material sources individually.</li>
+        <li>Count items across supported bags, safes, storage, and wardrobes.</li>
+        <li>Keep craftable recipes matched to the locations you choose.</li>
+        <li>Save your filter choices between sessions.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/images/filters.png" alt="Artisan material storage filters" width="442">
+</p>
+
+<h2 align="center">Make Artisan Yours</h2>
+
+<table align="center" border="0">
+  <tr>
+    <td align="left">
+      <ul>
+        <li>Customize window, font, and accent colors.</li>
+        <li>Adjust opacity and scale the interface or launcher independently.</li>
+        <li>Choose the launcher shape, visibility, and window behavior.</li>
+        <li>Set visual difficulty colors by the gap between skill and recipe cap.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
+<p align="center">
+  <img src="docs/images/settings.png" alt="Artisan settings window" width="560">
+</p>
 
 ## Install
 
@@ -80,7 +144,7 @@ Use **Open Filters** in the main window to select which bags and wardrobes contr
 - Material counts are read from the storage locations enabled in **Open Filters**.
 - A recipe requires one crystal and the full listed quantity of every ingredient.
 - Recipes requiring a crafting key item are excluded when that key item is not owned.
-- The primary craft and every subcraft must be within Phoenix's 15-level synthesis-attempt limit.
+- The primary craft and every subcraft must be within the 15-level synthesis-attempt limit.
 - The bracketed number at the end of a recipe is the number of times it can be crafted with the available materials.
 - Green, red, yellow, and white recipe names indicate the configured difficulty ranges; these colors do not change craftability.
 - Right-clicking an item lists recipes that produce it. Selecting one opens its craft and rank section, centers the recipe, and outlines it.
@@ -95,5 +159,11 @@ The recipe books are stored as native Lua, so Artisan has no runtime network or 
 ## Uninstall
 
 Run `/addon unload Artisan`, then remove the `addons\Artisan` folder. Saved settings are stored by Ashita under `config\addons\Artisan`.
+
+## Safety and scope
+
+Artisan is read-only. It does not synthesize items, move inventory, send packets, or modify game memory.
+
+## License and attribution
 
 Artisan's original source code is licensed under the MIT License. See [LICENSE](LICENSE) for details. Generated recipe data retains its upstream attribution and license notice.
